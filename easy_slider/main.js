@@ -34,7 +34,7 @@ window.addEventListener('mouseup', function (event) {
 //        alert('toggler!');
 //    }
 
-   if (-1 !== toggler.className.indexOf( 'active' ) && !isDescendantOrSelf(root, event.target) && event.target != span_togglers) {
+   if (-1 !== toggler.className.indexOf( 'active' ) && !isDescendantOrSelf(root, event.target) && event.target != span_togglers && event.target != toggler) {
        console.log('Passed!');
        toggler.classList.toggle('active');
        menu.classList.toggle('active');
