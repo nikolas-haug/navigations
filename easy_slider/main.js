@@ -1,6 +1,8 @@
 const toggler = document.querySelector('.menu__toggler');
 const menu    = document.querySelector('.menu');
 
+const span_togglers = document.querySelector('.menu__toggler span');
+
 /*
  * Toggles on and off the 'active' class on the menu
  * and the toggler button.
@@ -26,7 +28,13 @@ function isDescendantOrSelf(parent, child) {
 window.addEventListener('mouseup', function (event) {
    const root = menu;
 
-   if (! isDescendantOrSelf(root, event.target)) {
+   console.log(event.target);
+
+//    if(event.target == span_togglers) {
+//        alert('toggler!');
+//    }
+
+   if (-1 !== toggler.className.indexOf( 'active' ) && !isDescendantOrSelf(root, event.target) && event.target != span_togglers) {
        console.log('Passed!');
        toggler.classList.toggle('active');
        menu.classList.toggle('active');
