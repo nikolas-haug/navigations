@@ -1,0 +1,120 @@
+/*
+ * MENU BUTTON
+ */
+@import url("https://fonts.googleapis.com/css?family=K2D");
+.menu__toggler {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  height: 28px;
+  width: 28px;
+  outline: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+}
+.menu__toggler span,
+.menu__toggler span::before,
+.menu__toggler span::after {
+  position: absolute;
+  content: "";
+  width: 28px;
+  height: 2.5px;
+  background: #fafafa;
+  border-radius: 20px;
+  transition: .3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.menu__toggler span::before {
+  top: -8px;
+}
+.menu__toggler span::after {
+  top: 8px;
+}
+.menu__toggler.active > span {
+  background: transparent;
+}
+.menu__toggler.active > span::before,
+.menu__toggler.active > span::after {
+  background: #005c9c;
+  top: 0px;
+}
+.menu__toggler.active > span::before {
+  transform: rotate(-225deg);
+}
+.menu__toggler.active > span::after {
+  transform: rotate(225deg);
+}
+
+/*
+  * SLIDING MENU PANEL
+  */
+.menu {
+  color: #005c9c;
+  background: rgba(250, 250, 250, 0.7);
+  justify-content: center;
+  transition: .3s left cubic-bezier(0.77, 0, 0.175, 1);
+}
+.menu.active {
+  left: 0;
+}
+.menu ul {
+  list-style: none;  
+  display: flex;
+  justify-content: center;
+}
+.menu ul li a {
+  display: inline-block;   
+  text-decoration: none;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+@media only screen and (max-width: 600px) {
+  .menu {
+    width: 250px;
+    left: -250px;
+    padding: 50px;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    z-index: 998;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    height: 100%;
+  }
+  .menu ul {
+    flex-direction: column;
+  }
+  .menu__toggler {
+      display: flex;
+  }
+}
+
+/*
+  * BASIC STYLES
+  */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(coral, skyblue);
+  font-family: "K2D", sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+  color: #fafafa;
+  mix-blend-mode: overlay;
+}

@@ -1,23 +1,30 @@
+/* base style */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Side nav menu */
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: .5s;
+    display: flex;
+    width: 100%;
+    background-color: lightblue;
+    transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.sidenav ul {
+    display: flex;
+    list-style: none;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 2rem;
     text-decoration: none;
-    font-size: 25px;
     color: #818181;
-    display: block;
+    display: inline-block;
     transition: .3s;
 }
 
@@ -26,11 +33,10 @@
 }
 
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    /* display: none; */
+    display: inline-block;
+    order: 3;
+    margin-left: auto;
 }
 
 .hamburger {
@@ -39,12 +45,26 @@
 }
 
 #main {
-    background-color: blue;
+    background-color: #fff;
     transition: all .5s;
     padding: 20px;
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav { padding-top: 15px }
-    .sidenav a { font-size: 18px }
+/* Small screens */
+@media (max-width: 750px) {
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        overflow-x: hidden;
+    }
+
+    .sidenav ul {
+        flex-direction: column;
+    }
+
+    .sidenav .closebtn {
+        display: block;
+    }
 }
